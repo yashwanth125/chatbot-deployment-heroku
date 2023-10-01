@@ -6,3 +6,4 @@ unstructured
 fastapi
 uvicorn[standard]
 trafilatura
+python-dotenv
