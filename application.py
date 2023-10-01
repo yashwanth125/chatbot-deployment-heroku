@@ -10,12 +10,16 @@ import json
 from typing import Union
 from fastapi import FastAPI, UploadFile
 from llama_index import StorageContext, load_index_from_storage
+from dotenv import load_dotenv
 
+
+load_dotenv()
+api_key = os.environ['api']
 app = FastAPI()
 
-os.environ['OPENAI_API_KEY'] = "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"
-openai.api_key = "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"
-openai_api_key = "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"
+os.environ['OPENAI_API_KEY'] = api_key
+openai.api_key =api_key
+openai_api_key = api_key
 
 
 class Chatbot:
@@ -56,7 +60,7 @@ def read_root(question : str):
     print('done')
     storage_context = StorageContext.from_defaults(persist_dir='./storage')
     index1 = load_index_from_storage(storage_context)
-    bot = Chatbot("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", index=index1)
+    bot = Chatbot(api_key, index=index1)
     print(question)
     response = bot.generate_response(question)
     print(response)
