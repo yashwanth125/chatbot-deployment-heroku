@@ -1,2 +1,9 @@
+llama_index
+pypdf
+openai
+langchain
+unstructured
 fastapi
 uvicorn[standard]
+trafilatura
+python-dotenv
